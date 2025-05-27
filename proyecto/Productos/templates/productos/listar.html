@@ -1,0 +1,41 @@
+    {% extends 'Inicio/index.html' %}
+    {% block content %}
+        <div>
+            <h2>Lista de Productos</h2>
+            <!-- <a class="a-add" href="">Agregar</a> -->
+            <div class="container d-flex justify-content-center mt-5">
+                <div class="shadow p-4 bg-dark rounded" style="min-width: 80%;">
+                    <a class="btn btn-add" class="add" href="{% url 'agregar_productos' %}" role="button">Crear Producto</a>
+                    <p></p>
+                    <table id="tablaprod" class="table table-dark table-hover table-striped table-bordered" class="display">
+                        <thead>
+                            <tr>
+                                <th class="t-id">ID</th>
+                                <th class="t-nomb">Nombre</th>
+                                <th class="t-prec">Precio</th>
+                                <th class="t-desc">Descripción</th>
+                                <th class="t-acc"></th>
+                                <th class="t-acc"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for e in producto %}
+                            <tr>
+                                <td class="t-id">{{e.idproducto}}</td>
+                                <td class="t-nomb">{{e.nombre}}</td>
+                                <td class="t-prec">{{e.precio}}</td>
+                                <td class="t-desc">{{e.descripcion}}</td>
+                                <td class="t-a"><a class="btn btn-edit" class="edit" href="{% url 'modificar_productos' e.idproducto%}" role="button">Modificar</a></td>
+                                <td class="t-a"><a class="btn btn-del" class="del" href="{% url 'eliminar_productos' e.idproducto%}" role="button">Eliminar</a></td>
+                                <!-- <td class="t-a"><button class="btn btn-del eliminar-btn" data-url="{% url 'eliminar_productos' e.idproducto%}">Eliminar</button></td> -->
+                            <!-- <td class="t-a"><a class="a-edit" href="">Modificar</a></td>
+                            <td class="t-a"><a class="a-del" href="">Eliminar</a></td> -->
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    

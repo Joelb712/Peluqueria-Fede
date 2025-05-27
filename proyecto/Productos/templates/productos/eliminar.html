@@ -1,0 +1,17 @@
+
+    {% extends 'Inicio/index.html' %}
+    {% block content%}
+        <h2>Eliminar</h2>
+        <div class="container d-flex justify-content-center mt-5">
+            <div class="shadow p-4 bg-dark rounded" style="min-width: 80%;">
+                <form method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <p>Estas seguro que deseas eliminar este producto?</p>
+                    <button type="submit" class="btn btn-add">Confirmar</button>
+                    <a class="btn btn-del" class="del" href="{% url 'listar_productos' %}" role="button">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    {% endblock %}

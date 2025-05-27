@@ -1,0 +1,67 @@
+h2{
+    text-align: center;
+}
+
+.btn-edit{
+    background-color: rgb(76, 138, 219) ;
+    color: white;
+}
+
+.btn-del{
+    background-color: rgb(206, 74, 74);
+    color: white;
+}
+.btn-add{
+    background-color:green;
+    color: white;
+}
+
+.table-dark th,
+.table-dark td {
+  border: 1px solid #ffffff55 !important; /* blanco semitransparente */
+}
+
+table.dataTable.table-dark tbody tr {
+  border-bottom: 1px solid #ffffff33 !important;
+}
+
+.dataTables_length {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* espacio entre el texto y el select */
+}
+
+.dataTables_length label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0 !important;
+}
+
+.dataTables_length select {
+  margin-bottom: 0;
+  height: auto;
+}
+
+.dataTables_filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dataTables_filter label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0 !important;
+}
+
+.dataTables_filter input {
+  margin-bottom: 0;
+  height: auto;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+  margin-bottom: 1rem; /* Espacio debajo del selector y buscador */
+}
