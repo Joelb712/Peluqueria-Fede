@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2 class="text text-center">Cliente Nuevo</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                {{ form.as_p}}
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success border-dark">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

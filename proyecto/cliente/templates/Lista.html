@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="text text-center">Clientes</h2>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+        <table class="table table-striped border border-dark">
+            <thead class="bg-light">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Fecha De Nacimiento</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for e in Cliente %}
+            <tr>
+                <td>{{ e.nombre_cliente }}</td>
+                <td>{{ e.apellido_cliente }}</td>
+                <td>{{ e.telefono_cliente}}</td>
+                <td>{{ e.correo_cliente}}</td>
+                <td>{{ e.fecha_nacimiento_cliente}}</td>
+                <td>
+                    <a  class="btn btn-warning border-dark" href="{% url 'Modificar' e.pk %}">Modificar</a>
+                </td>
+                <td>
+                    <a class=" btn btn-danger border-dark" href="{% url 'Eliminar' e.pk %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <div>
+    </div>
+</table>
+</div>
+{% endblock %}
