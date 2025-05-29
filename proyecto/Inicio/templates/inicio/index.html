@@ -56,11 +56,19 @@
                                     <hr class="dropdown-divider">
                                 </li>
                             </ul>
+                        </li>   
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cerrarsesion' %}">Cerrar Sesion</a>
+                        </li>
+                        {% else%}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'iniciosesion' %}">Inicio Sesion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'inscribirse'%}">Registrate</a>
-
+                            <a class="nav-link" href="{% url 'inscribirse' %}">Registrate</a>
                         </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="#">Servicios</a>
                         </li>

@@ -39,3 +39,11 @@ nav a:hover{
     color: black;   
     background-color: #fa9107;
 }
+.card{
+    margin: 5% 20%;
+    background-color: #FDF5E6 ;
+    box-shadow: 0 0 20px 0 black;
+}
+.card-header{
+    background-color: #EDE6D6;
+    color: #5C4033;}
