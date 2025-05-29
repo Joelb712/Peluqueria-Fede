@@ -38,9 +38,6 @@
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" href="{% url 'listar_productos' %}">Ver Productos</a></li>
                                 <li><a class="dropdown-item" href="{% url 'agregar_productos' %}">Nuevo Producto</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
                                 <li><a class="dropdown-item" href="#">Stock</a></li>
                             </ul>
                         </li>
@@ -108,6 +105,54 @@
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'  // Traducción al español
                 }   
+            });
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            dropdown.addEventListener('show.bs.dropdown', function (e) {
+                e.preventDefault();
+                if (menu.classList.contains('animating')) return;
+
+                menu.classList.add('show', 'animating');
+                menu.style.display = 'block';
+                menu.style.overflow = 'hidden';
+                menu.style.height = '0px';
+
+                const fullHeight = menu.scrollHeight + "px";
+                requestAnimationFrame(() => {
+                    menu.style.transition = 'height 350ms ease';
+                    menu.style.height = fullHeight;
+                });
+
+                setTimeout(() => {
+                    menu.style.height = '';
+                    menu.style.overflow = '';
+                    menu.classList.remove('animating');
+                }, 300);
+            });
+
+            dropdown.addEventListener('hide.bs.dropdown', function (e) {
+                e.preventDefault();
+                if (menu.classList.contains('animating')) return;
+
+                menu.classList.add('animating');
+                menu.style.overflow = 'hidden';
+                menu.style.height = menu.scrollHeight + "px";
+
+                requestAnimationFrame(() => {
+                    menu.style.transition = 'height 300ms ease';
+                    menu.style.height = '0px';
+                });
+
+                setTimeout(() => {
+                    menu.classList.remove('show', 'animating');
+                    menu.style.display = '';
+                    menu.style.height = '';
+                    menu.style.overflow = '';
+                }, 200);
             });
         });
     </script>
